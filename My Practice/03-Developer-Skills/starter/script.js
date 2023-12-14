@@ -8,7 +8,7 @@
 // NOTE :-
 
 // Remember, we're gonna use strict mode in all scripts now!
-'use strict';
+"use strict";
 
 // TOPIC :-
 // Using Google, Stackoverflow, and MDN.
@@ -19,7 +19,7 @@ Our most recent task is this:" Given an array of tempratures of one day,
 calculate the temprature amplitude. Keep in mind that sometimes there 
 might be a sensor error."*/
 
-const tempratures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+const tempratures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
 
 /* 1.) Understand the problem :-
        - What is temprature amplitude?
@@ -35,8 +35,22 @@ const tempratures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 */
 // SOLUTION :-
 
-function calcTempAmplitude() {
-  return Math.max.apply(null, this);
+let maxTemp = tempratures[0];
+for (let i = 1; i <= tempratures.length; ++i) {
+  if (typeof tempratures[i] !== "string") {
+    if (maxTemp < tempratures[i]) {
+      maxTemp = tempratures[i];
+    }
+  }
 }
-const maxTemp = tempratures.calcTempAmplitude();
+
+let minTemp = tempratures[0];
+for (let i = 1; i <= tempratures.length; ++i) {
+  if (typeof tempratures[i] !== "string") {
+    if (minTemp > tempratures[i]) {
+      minTemp = tempratures[i];
+    }
+  }
+}
 console.log(maxTemp);
+console.log(minTemp);
